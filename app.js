@@ -48,4 +48,40 @@ const authCode = params.get('code');
 if (authCode) {
     document.getElementById('auth-code').value = authCode;
     document.body.insertAdjacentHTML('beforeend', `<p>Authorization Code: ${authCode}</p>`);
+
+// Handle API Requests
+document.getElementById('send-api-request').addEventListener('click', async () => {
+    const apiUrl = document.getElementById('api-url').value;
+    const accessToken = document.getElementById('access-token').value;
+    const method = document.getElementById('api-method').value;
+    const body = document.getElementById('api-body').value;
+
+    const headers = {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+    };
+
+    const options = {
+        method,
+        headers,
+    };
+
+    // Include the body for POST/PUT requests
+    if (method === 'POST' || method === 'PUT') {
+        try {
+            options.body = JSON.stringify(JSON.parse(body));
+        } catch (error) {
+            document.getElementById('api-response').textContent = `Invalid JSON in Request Body: ${error.message}`;
+            return;
+        }
+    }
+
+    try {
+        const response = await fetch(apiUrl, options);
+        const responseData = await response.json();
+        document.getElementById('api-response').textContent = JSON.stringify(responseData, null, 2);
+    } catch (error) {
+        document.getElementById('api-response').textContent = `Error: ${error.message}`;
+    }
+});
 }
