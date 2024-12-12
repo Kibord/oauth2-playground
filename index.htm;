@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAuth2 Playground</title>
+</head>
+<body>
+    <h1>OAuth2 Playground</h1>
+    <form id="auth-form">
+        <label for="auth-url">Authorization URL:</label><br>
+        <input type="text" id="auth-url" placeholder="https://example.com/auth" required><br><br>
+
+        <label for="client-id">Client ID:</label><br>
+        <input type="text" id="client-id" placeholder="Your Client ID" required><br><br>
+
+        <label for="redirect-uri">Redirect URI:</label><br>
+        <input type="text" id="redirect-uri" placeholder="https://example.com/callback" required><br><br>
+
+        <label for="scope">Scope:</label><br>
+        <input type="text" id="scope" placeholder="profile email"><br><br>
+
+        <button type="button" id="start-auth">Start Authorization</button>
+    </form>
+    <p id="instructions"></p>
+
+    <script src="app.js"></script>
+</body>
+</html>
