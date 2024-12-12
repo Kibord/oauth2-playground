@@ -37,6 +37,31 @@
         <button type="button" id="exchange-token">Exchange Token</button>
     </form>
 
+    <h2>API Request Testing</h2>
+    <form id="api-form">
+        <label for="api-url">API URL:</label><br>
+        <input type="text" id="api-url" placeholder="https://example.com/api" required><br><br>
+
+        <label for="access-token">Access Token:</label><br>
+        <input type="text" id="access-token" placeholder="Paste Access Token Here" required><br><br>
+
+        <label for="api-method">HTTP Method:</label><br>
+        <select id="api-method">
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="DELETE">DELETE</option>
+        </select><br><br>
+
+        <label for="api-body">Request Body (for POST/PUT):</label><br>
+        <textarea id="api-body" placeholder='{"key": "value"}'></textarea><br><br>
+
+        <button type="button" id="send-api-request">Send Request</button>
+    </form>
+
+<p id="api-response"></p>
+
+    
     <p id="token-response"></p>
 
     <script src="app.js"></script>
