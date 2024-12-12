@@ -22,7 +22,22 @@
 
         <button type="button" id="start-auth">Start Authorization</button>
     </form>
-    <p id="instructions"></p>
+
+    <h2>Token Exchange</h2>
+    <form id="token-form">
+        <label for="token-url">Token Endpoint URL:</label><br>
+        <input type="text" id="token-url" placeholder="https://example.com/token" required><br><br>
+
+        <label for="auth-code">Authorization Code:</label><br>
+        <input type="text" id="auth-code" placeholder="Paste Authorization Code Here" required><br><br>
+
+        <label for="client-secret">Client Secret:</label><br>
+        <input type="text" id="client-secret" placeholder="Your Client Secret" required><br><br>
+
+        <button type="button" id="exchange-token">Exchange Token</button>
+    </form>
+
+    <p id="token-response"></p>
 
     <script src="app.js"></script>
 </body>
